@@ -1,5 +1,22 @@
 # 每周总结可以写在这里
 
+## 成就 职业规划
+
+## 目标 -> 实施
+
+## 持续集成
+
+- 客户端
+  - Daily build
+  - BVT
+- 前端
+  - Check-in build
+  - Lint + Rule Check
+
+图片，一屏幕 50k，整包 4 倍，200k
+
+---
+
 ## Homework
 
 ### 前端脑图
@@ -31,6 +48,16 @@ HTML 标签列表
 
 [ECMAScript Types](./ECMA-types.md)
 
-### 面向对象溯源
+### 溯源
 
-todo
+#### 闭包
+
+TODO
+
+#### 面向对象溯源
+
+[OOP - 历史的巨轮](https://juejin.im/post/5e94336f51882573a77d0ff8)
+
+### URL 规则
+
+TODO
