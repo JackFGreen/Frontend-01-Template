@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTF8 Encoding</title>
+  </head>
+  <body>
+    <input type="text" id="from" />
+    <p>UTF8: <span id="to"></span></p>
+    <button id="encode">Encode</button>
+
+    <script src="./utf8encoding.js"></script>
+    <script>
+      document.getElementById('encode').onclick = () => {
+        const from = document.getElementById('from').value
+        const to = UTF8_Encoding(from)
+        document.getElementById('to').innerText = to
+      }
+    </script>
+  </body>
+</html>

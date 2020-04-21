@@ -9,7 +9,7 @@
     <h1>Entity-list</h1>
     https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd
 
-    <div>
+    <div class="wrap">
       <h2>xhtml-lat1.ent</h2>
       <div>
         ENTITY nbsp "&#160;"
@@ -301,7 +301,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="wrap">
       <h2>xhtml-symbol.ent</h2>
       <div>
         ENTITY fnof "&#402;"
@@ -677,7 +677,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="wrap">
       <h2>xhtml-special.ent</h2>
       <div>
         ENTITY quot "&#34;"
@@ -779,5 +779,13 @@
         ENTITY euro "&#8364;"
       </div>
     </div>
+
+    <script>
+      let n = 0
+      Array.from(document.querySelectorAll('.wrap')).forEach((wrap) => {
+        n += wrap.querySelectorAll('div').length
+      })
+      console.log(n)
+    </script>
   </body>
 </html>

@@ -1,0 +1,15 @@
+<script>
+  var a = 0.1
+  var b = 0.2
+
+  const m = new Float64Array(1)
+  m[0] = a
+
+  const intarr = new Uint8Array(m.buffer)
+
+  for (let i = 0; i < 8; i++) {
+    console.log(intarr[i].toString(2))
+  }
+
+  console.log(m, intarr)
+</script>
