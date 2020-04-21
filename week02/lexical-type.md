@@ -108,6 +108,13 @@ ASCII 最早的字符集，定义了 128 个符号(0-127)，英语够用，别�
 
 ### Number
 
+- IEEE 754 Double Float
+  - Sign(1)
+  - Exponent(11) 指数，科学计数法
+  - Fraction(52)
+
+#### Grammer
+
 - DecimalLiteral
   - 0 0. .1 1e3
 - Binary 0b111
@@ -183,5 +190,7 @@ UTF-8 最大的一个特点，就是它是一种`变长`的编码方式。它可
 ```
 
 ---
+
+参考
 
 [字符编码笔记：ASCII，Unicode 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)

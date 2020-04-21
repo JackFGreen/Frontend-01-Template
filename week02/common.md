@@ -36,13 +36,20 @@
   - `<A><B>` 前后可以有任意上下文，解析后 `<B>` 变成 `<A>`
   - `..."a" <b> "c"... ::= ..."a" "x" "c"...`， x 在 a c 的上下文中，被解析成 b
   - 上文提到的 `this` 在`语法`上下文解析中是相同的，不同的是运行时的`语义`
+  - `get` 是 1 型，后面是 `a` 的话代表 `getter`，后面是 `:` 代表 `属性`
+    ```js
+    {
+      get a {return 1},
+      get: 1
+      }
+    ```
 - `2 型` 上下文无关文法
   - `<A>::=?`
   - `::=` 左边只能有一个 非终结符
   - 比如产生式中写的 四则运算
 - `3 型` 正则文法
   - `<A>::=<A>?`
-  - `<A>::=?<A>` 错的，不能这样写，递归的 `<A>` 在右边了
+  - `<A>::=?<A>` ❌ 错的，不能这样写，递归的 `<A>` 在右边了
   - 只允许左递归，`<A>` 如果有递归，只能在左边
   - js 在 `**` 出来前都是左递归，可以正则分析，`**` 是右递归的 `2**2**3=256=2**(2**3)`，不是先算左边的 `(2**2)**3=64`
 
@@ -83,12 +90,40 @@
 
 ### 类型系统
 
-- 动态类型/静态类型
+- 动态类型系统/静态类型系统
 - 强类型/弱类型
   - String + Number
   - String == Boolean
 - 复合类型
   - 结构体
+    - 对象
   - 函数签名
+    - 参数列表，返回值
 - 子类行
   - 逆变/协变
+    - 逆变 参数是 Child，实际传的的是 Parent
+    - 协变 参数是 Parent，实际传的的是 Child
+
+## 一般命令式编程语言
+
+- Atom
+  - Identifier
+  - Literal
+- Expression
+  - Atom
+  - Operator
+  - Punctuator
+- Statement
+  - Expression
+  - Keyword
+  - Punctuator
+- Structure
+  - Function
+  - Class
+  - Process
+  - Namespace
+- Program
+  - Program
+  - Module
+  - Package
+  - Library
