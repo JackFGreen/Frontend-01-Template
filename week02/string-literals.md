@@ -202,6 +202,8 @@ V::= <CR>::= \u000D
 
 ## 正则
 
+[demo](./regString.js)
+
 ```
 StringLiteral::= "A?"|'B?'
 
