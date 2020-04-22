@@ -113,13 +113,9 @@ ASCII 最早的字符集，定义了 128 个符号(0-127)，英语够用，别�
   - Exponent(11) 指数，科学计数法
   - Fraction(52)
 
-#### Grammer
+#### Lexical Grammer
 
-- DecimalLiteral
-  - 0 0. .1 1e3
-- Binary 0b111
-- Octal 0o10
-- Hex 0xFF
+[数字直接量](./numeric-literals.md)
 
 #### Safe Integer
 
@@ -168,7 +164,7 @@ UTF-8 最大的一个特点，就是它是一种`变长`的编码方式。它可
 
 `严`的 Unicode 是 `4E25`（`100111000100101`），根据上表，可以发现 4E25 处在第三行的范围内（`0000 0800 - 0000 FFFF`），因此严的 UTF-8 编码需要`三`个字节，即格式是 `1110xxxx 10xxxxxx 10xxxxxx`。然后，从严的`最后一个`二进制位开始，依次`从后向前`填入格式中的 x，多出的位`补 0`。这样就得到了，严的 UTF-8 编码是 `11100100 10111000 10100101`，转换成十六进制就是 `E4B8A5`。
 
-#### Grammer
+#### Lexical Grammer
 
 - "a"
 - 'a'

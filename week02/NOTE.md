@@ -18,7 +18,7 @@ TODO
 
 ### 正则 Number
 
-[写一个正则 匹配所有 Number 直接量](./regNumber.js)
+[写一个正则 匹配所有 Number 直接量](./numeric-literals.md)
 
 ### UTF8_Encoding
 
