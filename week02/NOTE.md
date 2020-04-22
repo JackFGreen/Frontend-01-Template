@@ -26,4 +26,4 @@ TODO
 
 ### 正则 String
 
-[正则匹配所有的字符串直接量，单引号和双引号](./regString.js)
+[正则匹配所有的字符串直接量，单引号和双引号](./string-literals.md)
