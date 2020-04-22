@@ -1,7 +1,7 @@
 // './numeric-literals.md'
 
 const rule = {
-  decimal: /^(0|([1-9]([0-9]+)?))((e|E)((\+|\-)?([0-9]+)))?$/,
+  decimal: /^(((0|([1-9]([0-9]+)?))\.([0-9]+)?((e|E)((\+|\-)?([0-9]+)))?)|(\.([0-9]+)((e|E)((\+|\-)?([0-9]+)))?)|((0|([1-9]([0-9]+)?))((e|E)((\+|\-)?([0-9]+)))?))$/,
   binary: /^(0(b|B)((0|1)|((0|1)+)))$/,
   octal: /^(0(o|O)([0-7]|([0-7]+)))$/,
   hex: /^(0(x|X)([0-9a-fA-F]|([0-9a-fA-F]+)))$/,
@@ -9,7 +9,7 @@ const rule = {
 
 function regNumber(s, reg) {
   if (reg.test(s)) return s + ' - Match Number - ' + s.match(reg)[0]
-  return 'Invalid Number - ' + s
+  return '    Invalid Number - ' + s
 }
 
 const decimal = [
@@ -45,3 +45,13 @@ console.log(octalRes)
 const hex = ['0xFF', '0xFG', '0XFF', '0XFG']
 const hexRes = hex.map((s) => regNumber(s, rule.hex))
 console.log(hexRes)
+
+console.log(`
+  ---
+`)
+
+const allRule = /^((((0|([1-9]([0-9]+)?))\.([0-9]+)?((e|E)((\+|\-)?([0-9]+)))?)|(\.([0-9]+)((e|E)((\+|\-)?([0-9]+)))?)|((0|([1-9]([0-9]+)?))((e|E)((\+|\-)?([0-9]+)))?))|(0(b|B)((0|1)|((0|1)+)))|(0(o|O)([0-7]|([0-7]+)))|(0(x|X)([0-9a-fA-F]|([0-9a-fA-F]+))))$/
+
+const allNums = [...decimal, ...binary, ...octal, ...hex]
+const allRes = allNums.map((s) => regNumber(s, allRule))
+console.log(allRes)
