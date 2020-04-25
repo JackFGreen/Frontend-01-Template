@@ -202,7 +202,7 @@ V::= <CR>::= \u000D
 
 ## 正则
 
-[demo](./regString.js)
+[demo](./regString.html)
 
 ```
 StringLiteral::= "A?"|'B?'

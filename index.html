@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>前端训练营</title>
+  </head>
+  <body>
+    <h1>前端训练营</h1>
+    <div id="app"></div>
+
+    <script>
+      const data = [
+        {
+          title: 'week01',
+          list: [
+            {
+              name: 'entity',
+              link: './week01/Entity/entity.html',
+            },
+            {
+              name: 'tag',
+              link: './week01/Tag/tag.html',
+            },
+          ],
+        },
+        {
+          title: 'week02',
+          list: [
+            {
+              name: 'UTF8-encoding',
+              link: './week02/utf8encoding.html',
+            },
+            {
+              name: '匹配 Number 直接量',
+              link: './week02/regNumber.html',
+            },
+            {
+              name: '匹配 String 直接量',
+              link: './week02/regString.html',
+            },
+          ],
+        },
+      ]
+
+      const els = data.map((item) => {
+        const { title, list } = item
+
+        const h2 = document.createElement('h2')
+        h2.innerText = title
+
+        const listEl = list.map(({ name, link }) => {
+          const li = document.createElement('li')
+          const a = document.createElement('a')
+          a.innerText = name
+          a.setAttribute('href', link)
+          li.append(a)
+          return li
+        })
+
+        const ul = document.createElement('ul')
+        ul.append(...listEl)
+
+        const section = document.createElement('section')
+        section.append(h2)
+        section.append(ul)
+        return section
+      })
+
+      const app = document.getElementById('app')
+      app.append(...els)
+    </script>
+  </body>
+</html>
