@@ -1,8 +1,16 @@
-function str2decimal(str) {
+function str2num(str) {
+  if (!fullNumberReg.test(str)) return NaN
+
   const len = str.length
-  let i = 0
 
   let num = 0
+
+  let radix = 10
+  if (numberReg.binary.test(str)) radix = 2
+  if (numberReg.octal.test(str)) radix = 8
+  if (numberReg.hex.test(str)) radix = 16
+
+  let i = radix === 10 ? 0 : 2
 
   const dotCodePoint = '.'.codePointAt()
   const zeroCodePoint = '0'.codePointAt()
@@ -16,6 +24,7 @@ function str2decimal(str) {
   let divPow = 1
 
   let isExponent = false
+  let isNegativeExponent = false
   let needExponent = false
   let exponentPow = 0
 
@@ -29,7 +38,11 @@ function str2decimal(str) {
       const n = curCodePoint - zeroCodePoint
 
       if (!isDot) isDot = curCodePoint === dotCodePoint
-      if (!isExponent) isExponent = curCodePoint === exponentCodePoint
+      if (!isExponent) {
+        isExponent = curCodePoint === exponentCodePoint
+        if (isExponent)
+          isNegativeExponent = str[i + 1] && str[i + 1].codePointAt() === negativeCodePoint
+      }
 
       if (neeDiv && !isExponent) {
         num = num + n / 10 ** divPow
@@ -37,9 +50,11 @@ function str2decimal(str) {
       }
 
       if (needExponent) {
-        const rest = str.substr(isNegative ? i - 1 : i)
-        const pow = str2decimal(rest)
-        return num * 10 ** pow
+        const rest = str.substr(isNegativeExponent ? i - 1 : i)
+        const pow = str2num(rest)
+        num = num * 10 ** pow
+        num = isNegative ? num * -1 : num
+        return num
       }
 
       if (isExponent) {
@@ -47,7 +62,7 @@ function str2decimal(str) {
       } else if (isDot) {
         neeDiv = true
       } else {
-        num = num * 10 + n
+        num = num * radix + n
       }
     }
 
@@ -65,11 +80,6 @@ const decimalStrs = [
   '12.34',
   '.123',
   '123.',
-  // +e
-  '12e3',
-  '.12e3',
-  '1.2e3',
-  '12.e3',
   // -
   '-0123',
   '-123',
@@ -77,15 +87,39 @@ const decimalStrs = [
   '-12.34',
   '-.123',
   '-123.',
+  // +e
+  '12e3',
+  '.12e3',
+  '1.2e3',
+  '12.e3',
+  '-12e3',
+  '-.12e3',
+  '-1.2e3',
+  '-12.e3',
   // -e
   '12e-3',
   '.12e-3',
   '1.2e-3',
   '12.e-3',
+  '-12e-3',
+  '-.12e-3',
+  '-1.2e-3',
+  '-12.e-3',
+  // 0b
+  '0b0',
+  '0b1',
+  '0b10',
+  '0b102',
+  // 0o
+  '0o0',
+  '0o1',
+  '0o10',
+  '0o108',
+  // 0x
+  '0x0',
+  '0x1',
+  '0x10',
+  '0x10g',
 ]
-console.log('>')
-console.log(decimalStrs)
-const decimalRes = decimalStrs.map(str2decimal)
-console.log('<')
-console.log(decimalRes)
-// const arr = ['0123', '123', '0b10', '0o10', '0x10']
+const numRes = decimalStrs.map((s) => [s, str2num(s)])
+console.log(numRes)
