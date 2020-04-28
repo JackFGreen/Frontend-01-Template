@@ -41,7 +41,7 @@ function str2num(str) {
       if (!isExponent) {
         isExponent = curCodePoint === exponentCodePoint
         if (isExponent)
-          isNegativeExponent = str[i + 1] && str[i + 1].codePointAt() === negativeCodePoint
+          isNegativeExponent = str[i + 1].codePointAt() === negativeCodePoint
       }
 
       if (neeDiv && !isExponent) {
@@ -72,7 +72,7 @@ function str2num(str) {
   num = isNegative ? num * -1 : num
   return num
 }
-const decimalStrs = [
+const numStrs = [
   // +
   '0123',
   '123',
@@ -121,5 +121,5 @@ const decimalStrs = [
   '0x10',
   '0x10g',
 ]
-const numRes = decimalStrs.map((s) => [s, str2num(s)])
+const numRes = numStrs.map((s) => [s, str2num(s)])
 console.log(numRes)
