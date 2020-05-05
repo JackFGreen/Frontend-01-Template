@@ -7,7 +7,7 @@ function num2str(num) {
 
   let str = ''
 
-  if (decimal === 0) str = 0
+  if (decimal === 0) str = '0'
 
   while (decimal > 0) {
     str = (decimal % 10) + str
