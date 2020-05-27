@@ -7,7 +7,21 @@
   </head>
   <body>
     <h1>前端训练营</h1>
+    <div>dpr: <span id="dpr"></span></div>
+    <div>window.innerWidth: <span id="innerWidth"></span></div>
+    <div>window.innerHeight: <span id="innerHeight"></span></div>
+
     <div id="app"></div>
+
+    <script>
+      const dpr = document.getElementById('dpr')
+      const innerWidth = document.getElementById('innerWidth')
+      const innerHeight = document.getElementById('innerHeight')
+
+      dpr.innerText = window.devicePixelRatio
+      innerWidth.innerText = window.innerWidth
+      innerHeight.innerText = window.innerHeight
+    </script>
 
     <script>
       const data = [
