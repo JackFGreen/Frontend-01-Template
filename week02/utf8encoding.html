@@ -14,8 +14,8 @@
     <script>
       document.getElementById('encode').onclick = () => {
         const from = document.getElementById('from').value
-        const to = UTF8_Encoding(from)
-        document.getElementById('to').innerText = to
+        const to = from.split('').map(s=>UTF8_Encoding(s))
+        document.getElementById('to').innerText = to.join(' ')
       }
     </script>
   </body>
