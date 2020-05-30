@@ -16,6 +16,10 @@
 TODO
 参考资料: [字符串 KMP 算法](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
 
-### DOM parser
+### DOM with CSS
 
 [toy-browser](https://github.com/JackFGreen/toy-browser)
+
+#### 实现复合选择器，实现支持空格的 Class 选择器
+
+TODO
